@@ -1,3 +1,47 @@
+Formal spec (CTRL‑State Core + Guardrail)
+
+State (unchanged)
+
+capacity (Ŝ): low | normal | high
+decision_threshold (θ): low | normal | high
+precision:
+policy_precision: low | normal | high
+priors_vs_likelihoods: priors>likelihoods | balanced | likelihoods>priors
+sensory_precision: low | normal | high
+planning_horizon: short | normal | long
+Primary prescriptions (pick 3)
+
+increase_decision_threshold | decrease_decision_threshold
+increase_policy_precision | decrease_policy_precision
+increase_sensory_precision | decrease_prior_precision
+increase_planning_horizon | decrease_planning_horizon
+realign_capacity_estimate
+block_behavioral_routine | allow_behavioral_routine
+4th lever (guardrail; required)
+
+The “make it real” sidecar that determines whether the primary levers actually move.
+EffectiveMove = Intended × Adoption × Fidelity × Exposure × Timescale × (1 − Bypass)
+Adoption: proportion of relevant events covered (target ≥ 0.8)
+Fidelity: hard block vs advisory (hard block = 1; advisory < 1)
+Exposure: how often the lever applies to the decisions (≥ 0.8 when relevant)
+Timescale: observation window fits effect latency (e.g., 3 sprints; one term)
+Bypass: workarounds/screenshotting/scope creep (target ≈ 0)
+Prediction rule (invariant)
+
+If EffectiveMove ≥ 0.6, expect the pre‑stated deltas to move in the pre‑stated directions.
+If EffectiveMove < 0.6, expect attenuated or null effects; that’s not a miss—it's what the theory predicts.
+Schema addition (for your JSON)
+"guardrail": {
+"adoption": 0.0–1.0,
+"fidelity": "hard_block|advisory",
+"exposure": 0.0–1.0,
+"timescale": "window description",
+"bypass_mitigation": "measures taken",
+"effective_move_estimate": 0.0–1.0
+}
+
+
+
 Title
 CTRL-State Core v1.0 — Predictive Control State Mapper
 
