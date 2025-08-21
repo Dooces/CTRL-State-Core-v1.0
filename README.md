@@ -566,6 +566,60 @@ BibTeX for UPCA/IACE preprint(s) and foundational refs (FEP, PBWM, affordance co
 
 Formal spec (CTRL‑State Core + Guardrail)
 
+Structural flags (so you don’t iterate inside a broken frame)
+
+Ethics circularity: η must be anchored by the grounding pack (labels/panels) or IRL priors; otherwise 
+𝜖
+𝜂
+ϵ
+η
+	​
+
+ can self-justify. The blocker #2 addresses this.
+
+𝑆
+^
+S
+^
+ validity: treat it as a fit-and-test latent with external cortical-power validation; if it only tracks arousal, falsify and revise (#3).
+
+Double gating: using both auction and a free-standing logistic 
+𝑔
+𝑀
+𝐵
+g
+MB
+	​
+
+ creates non-identifiability. Make 
+𝑔
+𝑀
+𝐵
+g
+MB
+	​
+
+ a monitor derived from the auction crossing 
+𝜃
+𝑡
+θ
+t
+	​
+
+ (#5).
+
+Stakeholder weights 
+𝑤
+𝑠
+(
+𝑡
+)
+w
+s
+	​
+
+(t): add normalization and anti-confirmation dynamics (e.g., trust decay when predictions miss) in the η schema (#2, #6).
+
 
 CTRL‑State Core schema (fixed)
 
