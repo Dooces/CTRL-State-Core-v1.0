@@ -1202,3 +1202,33 @@ Schema addition (for your JSON)
 "bypass_mitigation": "measures taken",
 "effective_move_estimate": 0.0–1.0
 }
+
+Lever aliases → canonical lever
+
+timers/blocks/WIP=1/delay check → increase_decision_threshold
+
+batching/windows/hide live access → block_behavioral_routine
+
+peer/template/criteria/“good-enough” signals → increase_sensory_precision
+
+fixed wake/bright light/no naps/caffeine cutoff → realign_capacity_estimate
+
+“one task”/stickiness/selection stabilizers → increase_policy_precision
+
+explicit “longer look-ahead” → increase_planning_horizon
+
+explicit “loosen belief/tolerance bands” → decrease_prior_precision
+
+Metric aliases → canonical metric
+
+send latency/first keystroke delay → commit_latency
+
+passes/edits/reassurance/check count → repetitive_behavior_duration (or internal_dominance for reassurance)
+
+focus block length / fewer concurrent tasks → goal_breadth↓ (and commit_latency↑ to switch)
+
+sleep midpoint/anchor adherence/TST/variability → sleep_consolidation↑
+
+impulsive taps/trades/switches → risk_impulsivity_index↓
+
+off-window checks/worry time → worry_bout_length↓
