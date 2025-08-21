@@ -619,7 +619,447 @@ s
 	​
 
 (t): add normalization and anti-confirmation dynamics (e.g., trust decay when predictions miss) in the η schema (#2, #6).
+A) η grounding & identifiability (add under Ethics)
 
+Valence space: Let 
+valence
+∈
+[
+−
+1
+,
+1
+]
+𝑑
+valence∈[−1,1]
+d
+ with 
+𝑑
+d small (e.g., safety, fairness, autonomy, transparency). Observables map to this space via a fixed link 
+𝑔
+(
+⋅
+)
+g(⋅) (e.g., calibrated sigmoid for bounded scores).
+
+Invariance fix: Costs are z-scored per panel; temperature fixed at 
+𝛽
+=
+1
+β=1 to remove scale degeneracy; 
+𝜂
+η priors centered at 
+𝜇
+0
+μ
+0
+	​
+
+ with unit variance.
+
+Stakeholder weights:
+
+𝑤
+𝑠
+(
+𝑡
+)
+=
+s
+o
+f
+t
+m
+a
+x
+ ⁣
+(
+𝜅
+ 
+T
+r
+u
+s
+t
+𝑠
+(
+𝑡
+)
+)
+w
+s
+	​
+
+(t)=softmax(κTrust
+s
+	​
+
+(t)) with
+
+T
+r
+u
+s
+t
+𝑠
+(
+𝑡
++
+1
+)
+=
+(
+1
+−
+𝜌
+)
+ 
+T
+r
+u
+s
+t
+𝑠
+(
+𝑡
+)
++
+𝜌
+ 
+exp
+⁡
+{
+−
+𝐿
+𝑠
+(
+𝑡
+)
+}
+Trust
+s
+	​
+
+(t+1)=(1−ρ)Trust
+s
+	​
+
+(t)+ρexp{−L
+s
+	​
+
+(t)},
+
+𝐿
+𝑠
+(
+𝑡
+)
+=
+𝐷
+𝐾
+𝐿
+ ⁣
+(
+𝑞
+𝑠
+(
+valence
+∣
+outcome
+)
+ 
+∥
+ 
+𝑝
+𝑠
+(
+valence
+∣
+𝜂
+)
+)
+L
+s
+	​
+
+(t)=D
+KL
+	​
+
+(q
+s
+	​
+
+(valence∣outcome)∥p
+s
+	​
+
+(valence∣η)).
+Add floor/ceiling: 
+𝑤
+𝑠
+∈
+[
+𝑤
+min
+⁡
+,
+1
+−
+(
+𝑆
+−
+1
+)
+𝑤
+min
+⁡
+]
+w
+s
+	​
+
+∈[w
+min
+	​
+
+,1−(S−1)w
+min
+	​
+
+].
+
+B) Arbitration (unify; add at end of Arbitration section)
+
+Commitment: Leaky-WTA auction is the sole gate. Dynamics
+
+𝑧
+˙
+𝑖
+=
+𝛽
+𝑖
+(
+𝑆
+^
+)
+ 
+𝑈
+𝑖
+−
+𝜆
+𝑧
+𝑖
+−
+∑
+𝑗
+≠
+𝑖
+𝛾
+𝑖
+𝑗
+𝑧
+𝑗
++
+𝜉
+𝑖
+z
+˙
+i
+	​
+
+=β
+i
+	​
+
+(
+S
+^
+)U
+i
+	​
+
+−λz
+i
+	​
+
+−∑
+j
+
+=i
+	​
+
+γ
+ij
+	​
+
+z
+j
+	​
+
++ξ
+i
+	​
+
+, gate when 
+max
+⁡
+𝑖
+𝑧
+𝑖
+≥
+𝜃
+𝑡
+max
+i
+	​
+
+z
+i
+	​
+
+≥θ
+t
+	​
+
+.
+
+Derived readout: 
+𝑔
+𝑀
+𝐵
+≡
+𝜎
+ ⁣
+(
+𝑧
+𝑀
+𝐵
+−
+𝜃
+𝑡
+)
+g
+MB
+	​
+
+≡σ(z
+MB
+	​
+
+−θ
+t
+	​
+
+) (for logging/plots only). No second logistic gate in control.
+
+Order per step: infer 
+𝑆
+^
+S
+^
+ → compute bids 
+𝑈
+𝑖
+U
+i
+	​
+
+ → update 
+𝑧
+z (leaky-WTA) → check 
+𝑧
+\*
+≥
+𝜃
+𝑡
+z
+\*
+≥θ
+t
+	​
+
+ → allocate budget 
+𝐵
+plan
+B
+plan
+	​
+
+ to winner → act → learn.
+
+C) SI promotion rule (add under Skills)
+
+Promotion test: promote subsequence 
+𝜋
+π from candidate→skill when
+(i) use-rate: 
+𝑈
+ˉ
+(
+𝜋
+)
+≥
+𝜏
+use
+U
+ˉ
+(π)≥τ
+use
+	​
+
+ over a sliding window,
+(ii) MDL gain: 
+Δ
+M
+D
+L
+(
+𝜋
+)
+=
+M
+D
+L
+(
+model
+)
+−
+M
+D
+L
+(
+model
+ ⁣
++
+ ⁣
+𝜋
+)
+≥
+𝜏
+mdl
+ΔMDL(π)=MDL(model)−MDL(model+π)≥τ
+mdl
+	​
+
+, and
+(iii) utility lift: 
+Pr
+⁡
+[
+Δ
+𝐽
+(
+𝜋
+)
+>
+0
+]
+≥
+0.95
+Pr[ΔJ(π)>0]≥0.95 (bootstrap over episodes).
+Skills promote to macros under the same criteria with composition penalties; inputs are z-scored; β fixed to 1 to prevent scale drift.
 
 CTRL‑State Core schema (fixed)
 
