@@ -1,3 +1,569 @@
+UPCA / IACE — Compressed Summary (unified)
+
+Core claim: Intelligence = resource-rational predictive control. An agent with a hierarchical generative model minimizes expected free energy while pricing computation and time. Ethics is intrinsic: an “ethics head” minimizes ethical prediction error against structured normative priors η embedded in the same generative scaffold as world knowledge.
+
+Unification of framings:
+
+UPCA v4.1 modules ↔ IACE terms ↔ Tripartite phrasing
+
+ME (Motor/Perceptual Execution) ↔ APs ↔ Detail Engine (D)
+
+MA (Meta-Actions / Planning) ↔ Speculative Engine ↔ Abstract/Fantasy Engine (A)
+
+SI (Systemic Information / Skills) ↔ Skill Memory/Induction ↔ (cross-cuts D/A)
+
+AMC (Meta-Cognitive Arbiter + Ethics) ↔ Subconscious Allocator ↔ Conscience Module (C)
+
+Scaffold (θ, η) = shared hierarchical model (facts + ethics).
+
+Mechanistic arbitration (no homunculus):
+
+Surplus 
+𝑆
+^
+𝑡
+S
+^
+t
+	​
+
+: inferred allostatic state (Kalman/variational filter over multi-sensor interoceptive proxies).
+
+Gate/threshold 
+𝜃
+𝑡
+θ
+t
+	​
+
+: circuit-level bound (TRN, STN, striatum D1/D2, FPC) under receptor-specific NE/ACh/DA/5-HT control.
+
+Controller auction: leaky-WTA over bids 
+𝑈
+𝑖
+=
+𝐸
+[
+Δ
+FE
+𝑖
+]
+time_cost
+𝑖
+(
+DA, 5-HT
+)
++
+energy_cost
+𝑖
+(
+𝑆
+^
+)
+U
+i
+	​
+
+=
+time_cost
+i
+	​
+
+(DA, 5-HT)+energy_cost
+i
+	​
+
+(
+S
+^
+)
+E[ΔFE
+i
+	​
+
+]
+	​
+
+.
+
+Engagement: 
+𝑔
+𝑀
+𝐵
+=
+𝜎
+(
+𝛼
+ 
+𝜀
+res
++
+𝛽
+ 
+𝑆
+^
+−
+𝜃
+𝑡
+)
+g
+MB
+	​
+
+=σ(αε
+res
+	​
+
++β
+S
+^
+−θ
+t
+	​
+
+). Budget 
+𝐵
+plan
+=
+𝐵
+max
+⁡
+ 
+𝑔
+𝑀
+𝐵
+ 
+𝑆
+^
+B
+plan
+	​
+
+=B
+max
+	​
+
+g
+MB
+	​
+
+S
+^
+.
+
+Ethics as prediction:
+
+η (ethical priors): structured probabilistic graphs in the Scaffold.
+
+Ethical error 
+𝜖
+𝜂
+ϵ
+η
+	​
+
+: divergence between predicted vs. posterior ethical valence on imagined/actual outcomes; updates η and modulates D/A via AMC.
+
+Bayesian multi-objective ethics: stakeholder-weighted costs with uncertainty over η.
+
+Learning & consolidation:
+
+Wake: use-weighted Hebbian plasticity scaled by precision-weighted surprise and controller recruitment.
+
+Sleep: global down-selection + controller-specific replay (MB↔HPC-PFC; MF↔striatal/cerebellar).
+
+Testable predictions (preregisterable):
+
+Energy-ordered failure: under safe energy clamps, MB depth & HPC–PFC coupling fail before habits; brief LC-NE reset precedes collapse.
+
+Access interactions: ACh×SNR and NE×volatility modulate MB gating at matched 
+𝑆
+^
+S
+^
+.
+
+Controller-specific sleep effects and DA inverted-U on vigor/precision.
+
+Immediate structural call-outs (required to avoid hidden circularity)
+
+Ethical identifiability: 
+𝜖
+𝜂
+ϵ
+η
+	​
+
+ requires an operationalized valence space and observables; without preregistered labeling/IRL schemas and task panels, η updates risk degeneracy. Include a grounding set (tasks + annotation protocol) and stakeholder map with explicit uncertainty.
+
+Surplus estimation validity: 
+𝑆
+^
+S
+^
+ must be fit-and-test with cross-modal validation (e.g., fNIRS/fMRI cortical power) and perturbations (hypoxia, glucose). Otherwise 
+𝑆
+^
+S
+^
+ collapses into a generic arousal proxy.
+
+Gate localization: 
+𝜃
+𝑡
+θ
+t
+	​
+
+ decomposition (TRN/STN/D1/D2/FPC) needs double dissociation via pharmacology/DBS/EEG signatures to avoid lumping all control into a single latent.
+
+Dual nomenclature drift: Three phrasings (UPCA, IACE, D/A/C) can leak inconsistencies. Freeze the unified glossary below and use AMC (with Ethics head) as the single term for metacontrol+ethics throughout code/docs.
+
+README Outline (complete, unified; ready to fill)
+1) Title & Tagline
+
+UPCA (Unified Predictive Cognitive Architecture)
+Resource-rational predictive control with intrinsic ethical alignment.
+
+Badges (to add later): build | tests | coverage | docs | license
+
+2) Why UPCA?
+
+Problem: scalable abstraction & planning with verifiable alignment.
+
+Approach: one predictive scaffold for perception, imagination, action, and ethics; computation/time are priced; control is auctioned, not commanded.
+
+What’s new: mechanized surplus 
+𝑆
+^
+S
+^
+, circuit-level gate 
+𝜃
+𝑡
+θ
+t
+	​
+
+, ethics as prediction error 
+𝜖
+𝜂
+ϵ
+η
+	​
+
+, preregisterable falsifiers.
+
+3) Architecture Overview
+3.1 Modules (Unified Glossary)
+
+ME — Motor/Perceptual Execution (Detail Engine/APs)
+Low-level predictive coding; immediate sensorimotor loop.
+
+MA — Meta-Actions / Planning (Abstract/Fantasy)
+Counterfactual rollouts; long-horizon policy search.
+
+SI — Systemic Information / Skills
+Skill memory & induction; usage-based promotion, hierarchical composition.
+
+AMC — Meta-Cognitive Arbiter (with Ethics Head)
+Arbitration (MB↔MF), ethical prediction & updating 
+𝜖
+𝜂
+ϵ
+η
+	​
+
+, resource scheduling.
+
+Scaffold
+Shared hierarchical generative model (world + ethics η).
+
+3.2 Dataflow (high level)
+
+Perceive: ME reduces current PEs; exports latent 
+𝑠
+𝐷
+s
+D
+	​
+
+.
+
+Imagine: MA rolls out futures from 
+𝑠
+𝐷
+s
+D
+	​
+
+ under Scaffold.
+
+Judge: AMC Ethics head evaluates trajectories, computes 
+𝜖
+𝜂
+ϵ
+η
+	​
+
+, updates η.
+
+Arbitrate: AMC auction + gate decide budget, broadcast, and action.
+
+Learn: Wake Hebb + Sleep down-selection; SI promotes stable skills.
+
+(diagram placeholder: /docs/figs/architecture.svg)
+
+4) Mathematical Core (anchors; details to fill)
+
+Free energy (FE) and expected free energy (EFE) definitions.
+
+Residual error 
+𝜀
+res
+ε
+res
+	​
+
+ and MB engagement
+
+𝑔
+𝑀
+𝐵
+=
+𝜎
+(
+𝛼
+ 
+𝜀
+res
++
+𝛽
+ 
+𝑆
+^
+−
+𝜃
+𝑡
+)
+g
+MB
+	​
+
+=σ(αε
+res
+	​
+
++β
+S
+^
+−θ
+t
+	​
+
+).
+
+Ethical error 
+𝜖
+𝜂
+ϵ
+η
+	​
+
+ and η update rule (IRL + prediction error).
+
+Surplus filter (state-space model, sensors, priors, learning of 
+𝐶
+,
+𝑅
+C,R).
+
+Gate dynamics 
+𝜃
+𝑡
+θ
+t
+	​
+
+: TRN/STN/D1/D2/FPC + neuromodulators (NE/ACh/DA/5-HT).
+
+Auction (leaky-WTA) over controllers; stability constraints.
+
+Learning rules: wake plasticity; sleep down-selection; controller-specific replay.
+
+Stochastic coupled dynamics (fast μ,a vs. slow θ,η); convergence criteria.
+
+5) Ethics in the Loop
+
+η as structured graphs (stakeholders, costs, priors, uncertainty).
+
+Bayesian multi-objective ethics: examples (safety, fairness, autonomy, transparency).
+
+Stakeholder weighting 
+𝑤
+𝑠
+(
+𝑡
+)
+w
+s
+	​
+
+(t) and trust updates.
+
+Interpretability hooks: logging ethical attributions & counterfactuals.
+
+6) Repository Layout (proposed)
+/upca
+  /core        # Scaffold, FE/EFE, message passing
+  /me          # ME: predictive coding loop, sensors/actuators
+  /ma          # MA: planner (rollouts, queues, budgets)
+  /si          # Skills: induction/promotion/composition
+  /amc         # Arbiter + Ethics head (Ŝ filter, θ gate, auction, ε_η)
+  /ethics      # η schemas, IRL, stakeholder costs
+  /sleep       # consolidation/down-selection
+  /experiments # tasks, clamps, pharmacology sims, sleep studies
+  /eval        # metrics, falsifiers, prereg panels
+  /docs        # figures, theory notes, API docs
+
+7) Quickstart (stubs)
+
+Install (env, deps, versions).
+
+Run minimal demo: gridworld or manipulation task with ethics toggle.
+
+Config: YAML for sensors, η schema, arbitration gains.
+
+Reproduce paper figure: one-command script.
+
+8) Demos (progressive)
+
+Perception-action loop (ME only) — FE reduction plots.
+
+Planning budget (MA+AMC) — g_MB vs. 
+𝑆
+^
+S
+^
+/θ sweeps.
+
+Ethics on/off — divergence under 
+𝜖
+𝜂
+ϵ
+η
+	​
+
+ ablation.
+
+Skill induction (SI) — promotion curves and MDL/complexity priors.
+
+Sleep effects — controller-specific retention.
+
+9) Experiments & Falsification (pre-reg templates)
+
+Energy-ordered failure under hypoxia/hypoglycemia clamps.
+
+Access interactions (ACh×SNR, NE×volatility) at matched 
+𝑆
+^
+S
+^
+.
+
+Sleep dependence (MB vs. MF tasks).
+
+DA inverted-U on precision/vigor and deliberation.
+
+Validation of 
+𝑆
+^
+S
+^
+ against cortical power proxies.
+(include JSON/YAML prereg plan + analysis scripts)
+
+10) Benchmarks & Tasks
+
+Two-step task, volatile bandit, degraded-SNR perception, simple rescue / allocation games (ethics), manipulation/maze with hazards.
+
+Metrics: FE/EFE, MB-weight, broadcast panel (P3b/phase-locking/TMS-EEG proxies in sim), ethics consistency/variance, skill MDL, compute/time budgets.
+
+11) Safety & Scope
+
+Declared assumptions (ontology for η, sensor set for 
+𝑆
+^
+S
+^
+, mapping for 
+𝜃
+𝑡
+θ
+t
+	​
+
+).
+
+Known failure modes (η mis-specification; surplus mis-tracking; gate drift).
+
+Mitigations (audits, ablations, red-team tasks, stakeholder variance tests).
+
+What would falsify major claims (clean exits).
+
+12) Configuration & Extensibility
+
+Plugin interfaces: Sensors, Ethics schemas, Planners, Skills.
+
+Checklists: unit tests for identifiability, budget sanity, and monotonicity.
+
+13) Logging & Interpretability
+
+Run logs: FE terms, 
+𝑆
+^
+S
+^
+, 
+𝜃
+𝑡
+θ
+t
+	​
+
+ components, bids 
+𝑈
+𝑖
+U
+i
+	​
+
+, chosen controller, ethics attributions.
+
+Post-hoc tools: counterfactual replays, ethics-trace viewers.
+
+14) Roadmap
+
+v0.1 ME loop + 
+𝑆
+^
+S
+^
+ stub → v0.2 planner budget → v0.3 ethics head (toy η) → v0.4 SI promotion → v0.5 falsifiers → v1.0 prereg pack.
+
+15) Contributing
+
+Code style, tests, docs.
+
+Adding a new stakeholder cost or sensor.
+
+Issue templates: theory bug vs. implementation bug vs. identifiability risk.
+
+16) Citation
+
+BibTeX for UPCA/IACE preprint(s) and foundational refs (FEP, PBWM, affordance competition, etc.).
+
+
 Formal spec (CTRL‑State Core + Guardrail)
 
 
