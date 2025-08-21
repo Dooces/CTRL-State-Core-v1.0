@@ -1354,6 +1354,6 @@ README.md (this file)
 schema/ctrl_state_core_v1.json
 examples/ (a few sample inputs/outputs)
 scripts/validate_json.py (optional JSON schema validator)
-Name locked
 
-“CTRL-State Core v1.0” is the canonical name. I will not rename or refactor this spec.
+
+
