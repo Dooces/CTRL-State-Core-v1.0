@@ -1,4 +1,37 @@
 Formal spec (CTRL‑State Core + Guardrail)
+
+
+CTRL‑State Core schema (fixed)
+
+state
+capacity: low | normal | high
+decision_threshold: low | normal | high
+policy_precision: low | normal | high
+sensory_precision: low | normal | high
+priors_vs_likelihoods: priors>likelihoods | balanced | likelihoods>priors
+planning_horizon: short | normal | long
+residual_note: string
+engagement_note: string
+prescriptions (exactly 3)
+increase_decision_threshold | decrease_decision_threshold
+increase_policy_precision | decrease_policy_precision
+increase_sensory_precision | decrease_prior_precision
+increase_planning_horizon | decrease_planning_horizon
+realign_capacity_estimate
+block_behavioral_routine | allow_behavioral_routine
+behavior_deltas (exactly 3; metric + direction)
+metric ∈ { commit_latency, internal_dominance, evidence_updating, repetitive_behavior_duration, speech_rate, sleep_consolidation, goal_breadth, risk_impulsivity_index, worry_bout_length, social_initiation }
+direction ∈ { up, down, stabilize }
+guardrail (the “make it real” 4th)
+adoption: 0.0–1.0
+fidelity: hard_block | advisory
+exposure: 0.0–1.0
+timescale: string (“3 sprints”, “one term”)
+bypass_mitigation: string
+effective_move_estimate: 0.0–1.0
+dsm_style_label (optional; free text)
+
+
 How I pick levers (deterministic, from the framework)
 
 Parse the input for control cues
