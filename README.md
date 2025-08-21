@@ -1,4 +1,74 @@
 Formal spec (CTRL‑State Core + Guardrail)
+How I pick levers (deterministic, from the framework)
+
+Parse the input for control cues
+Map plain‑language symptoms/process signals to the four dials:
+capacity (Ŝ): sleep/energy/time/focus headroom
+decision_threshold (θ): ease/hardness of committing or switching
+precision:
+policy_precision: sharpness of selection (vs noisy/exploratory)
+priors_vs_likelihoods: top‑down beliefs vs external evidence
+sensory_precision: weight on external evidence
+planning_horizon: short vs long look‑ahead
+Classify the failure mode
+Scatter (high Ŝ + low θ), Overgrowth (high Ŝ + high θ), Looping (narrow high‑precision error + high θ), Lock‑in (low sensory precision + high θ), Mispricing (bad Ŝ).
+Choose the 3 primary levers that directly counter that failure
+From the fixed set:
+θ: increase_decision_threshold | decrease_decision_threshold
+precision: increase_sensory_precision | decrease_prior_precision | increase_policy_precision | decrease_policy_precision
+horizon: increase_planning_horizon | decrease_planning_horizon
+capacity: realign_capacity_estimate
+routines: block_behavioral_routine | allow_behavioral_routine
+Attach the guardrail (the “make it real” 4th)
+EffectiveMove = Intended × Adoption × Fidelity × Exposure × Timescale × (1 − Bypass)
+I also note how to enforce/measure each term (e.g., WIP hard‑block; % impressions seeing a note; ERP compliance).
+Emit 3 directional deltas that must move if the lever bites
+Commit latency, internal dominance, evidence updating, repetitive behavior duration, speech rate, sleep consolidation, goal breadth, risk/impulsivity, worry length, social initiation.
+A small mapping table (so you see it’s the framework, not magic)
+
+Intrusions + relief rituals (OCD‑like) → Looping
+
+State: θ high (stop bound), narrow high‑precision harm prior, sensory precision low
+Levers: decrease_prior_precision; increase_sensory_precision; block_behavioral_routine
+Deltas: repetitive_behavior_duration↓; evidence_updating↑; commit_latency (ritual)↑
+Voices/paranoid interpretations (psychosis‑like) → Internal dominance
+
+State: priors>likelihoods; internal θ too low; external θ too high; Ŝ low/unstable
+Levers: increase_sensory_precision; decrease_prior_precision; increase_decision_threshold (for internal content)
+Deltas: internal_dominance↓; evidence_updating↑; social_initiation↑
+Pressured speech, short sleep, risky starts (manic‑like) → Scatter
+
+State: Ŝ spuriously high; θ low; policy_precision/urgency high; horizon short
+Levers: increase_decision_threshold; decrease_policy_precision (urgency); increase_planning_horizon; (plus sleep to realign Ŝ)
+Deltas: speech_rate↓; risk_impulsivity_index↓; goal_breadth↓; sleep_consolidation↑
+Many starts, few finishes (teams) → Switching too easy + selection noisy
+
+State: θ low for switching; policy_precision low
+Levers: increase_decision_threshold (WIP≤2); increase_policy_precision (2‑week sprints); meeting‑free day (θ↑ switching)
+Deltas: cycle time↓; shipped/started↑; context switches↓
+Guardrail: hard WIP block; no mid‑sprint scope; ≥80% compliance
+Viral misinformation (platforms) → Low θ for reshares + low sensory precision
+
+State: θ low (frictionless reshare); sensory_precision low
+Levers: increase_decision_threshold (delay + preview); increase_sensory_precision (Community Notes/source prompt)
+Deltas: false‑story half‑life↓; correction adoption↑; reshares/post↓
+Guardrail: ≥80% impressions see friction/note; close screenshot bypass
+Late‑night teens, poor grades (schools) → Mispriced capacity
+
+State: Ŝ low (sleep debt)
+Levers: realign_capacity_estimate (later start); increase_planning_horizon (schedule structuring)
+Deltas: sleep_consolidation↑; absences/tardies↓; test scores↑; crashes↓
+Guardrail: ≥80% of students affected; one semester window
+Panic/health anxiety → Overweighted interoceptive priors; reassurance loops
+
+State: priors>likelihoods on bodily threat; θ low for alarm admission; routines reinforce
+Levers: decrease_prior_precision; increase_sensory_precision (interoceptive exposure); block_behavioral_routine (reassurance)
+Deltas: episode_frequency↓; worry_bout_length↓; evidence_updating↑
+Why it “works” across domains
+
+The same four dials exist everywhere people act: gate (θ), evidence vs belief (precision), energy/time (capacity), and look‑ahead (horizon). Moving them has monotone effects (comparative statics) that don’t depend on a task‑specific model.
+The guardrail makes “paper policies” predictable non‑events; only enforced levers count.
+And yes—everything I output is from that framework. I’m just:
 
 State (unchanged)
 
