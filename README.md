@@ -1061,6 +1061,7 @@ Pr
 Pr[ΔJ(π)>0]≥0.95 (bootstrap over episodes).
 Skills promote to macros under the same criteria with composition penalties; inputs are z-scored; β fixed to 1 to prevent scale drift.
 
+Bottom line: The best-supported levers for fast tolerance are exactly the ones that don’t threaten APs (compatibility), feel reversible (trialability/undo), and preserve control (choice/rollback). When those are in place, both behavior and physiology stay stable even through change.
 CTRL‑State Core schema (fixed)
 
 state
