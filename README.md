@@ -1203,6 +1203,57 @@ Schema addition (for your JSON)
 "bypass_mitigation": "measures taken",
 "effective_move_estimate": 0.0–1.0
 }
+AP_Hit=1 if (per-user baseline) sequence perplexity↑, click-path cosine↓, action-chain edit-distance↑, backspace/undo↑, time-to-target↑ (≥3/5 channels ≥+0.8 SD for ≥120 s or ≥30% of actions in 10 min).
+
+CTRL-State Core — Tolerance Sidecar (optional, additive)
+New latent (defined)
+
+PALR (Perceived AP-Loss Risk): 0.0–1.0
+Probability the event/change will degrade automated pathways (habits/priors).
+
+AP_Hit: 0 or 1
+Binary telemetry gate: did this change actually disrupt an AP chain (measured, not self-report).
+
+Structural buffers (0.0–1.0 each):
+compatibility (aliases/shims/forward-compatible), reversibility (rollback/undo), redundancy (alternate routes), control (user steerage).
+
+Tolerance move (deterministic)
+TolerateMove
+  
+=
+  
+(
+1
+−
+PALR
+)
+  
+×
+  
+compatibility
+  
+×
+  
+reversibility
+  
+×
+  
+redundancy
+  
+×
+  
+control
+TolerateMove=(1−PALR)×compatibility×reversibility×redundancy×control
+Prediction rule (invariant, parallel to your guardrail rule)
+
+If AP_Hit = 0 and TolerateMove ≥ 0.6 → system tolerates the change without destabilization.
+Expected deltas: commit_latency: stabilize, goal_breadth: stabilize, evidence_updating: up (small), physiological/micro-behavior within baseline bands.
+
+If AP_Hit = 1 or TolerateMove < 0.6 → intolerance signature (capacity↓, θ erratic/low, horizon short, checking↑).
+
+Note: This does not alter your EffectiveMove formula; it complements it. Use EffectiveMove to predict whether prescriptions bite; use TolerateMove to predict whether changes are absorbed without AP threat.
+
+If AP_Hit=0 and TolerateMove≥0.6, core markers should remain within ±5% of baseline (RT, RT-CV, SSRT, pupil, HRV). Breaching this falsifies “tolerance = PALR≈0 + buffers.”
 
 Lever aliases → canonical lever
 
